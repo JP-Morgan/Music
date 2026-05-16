@@ -1,0 +1,31 @@
+# Build outputs
+x64/
+My_Music/x64/
+*.exe
+*.ilk
+*.pdb
+*.lib
+*.obj
+*.tlog/
+*.lastbuildstate
+*.unsuccessfulbuild
+*.log
+
+# Qt generated files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# IDE
+.vs/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.db
+*.opendb
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
