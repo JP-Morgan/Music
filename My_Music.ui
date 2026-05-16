@@ -211,7 +211,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>Menu</string>
                  </property>
                 </widget>
                </item>
@@ -229,14 +229,8 @@
                    <height>30</height>
                   </size>
                  </property>
-                 <property name="sizeIncrement">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>Srch</string>
                  </property>
                 </widget>
                </item>
@@ -255,7 +249,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>Max</string>
                  </property>
                 </widget>
                </item>
@@ -274,7 +268,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>X</string>
                  </property>
                 </widget>
                </item>
@@ -700,7 +694,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>|&lt;</string>
                     </property>
                    </widget>
                   </item>
@@ -713,7 +707,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>[]</string>
                     </property>
                    </widget>
                   </item>
@@ -726,7 +720,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -739,7 +733,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>*</string>
                     </property>
                    </widget>
                   </item>
@@ -752,7 +746,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>Vol</string>
                     </property>
                    </widget>
                   </item>
@@ -765,7 +759,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string>&gt;|</string>
                     </property>
                    </widget>
                   </item>
@@ -774,6 +768,9 @@
                </item>
                <item>
                 <widget class="QWidget" name="timeInfoWidget" native="true">
+                 <property name="styleName">
+                  <string>timeInfoWidget</string>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background-color:rgb(255, 85, 255);</string>
                  </property>
@@ -815,7 +812,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>11:00</string>
+                     <string>00:00</string>
                     </property>
                    </widget>
                   </item>
@@ -841,7 +838,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>12:00</string>
+                     <string>00:00</string>
                     </property>
                    </widget>
                   </item>
