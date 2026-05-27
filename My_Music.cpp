@@ -13,41 +13,32 @@ MyMusic::MyMusic(QWidget *parent)
     setupConnections();
 }
 
-MyMusic::~MyMusic()
-{
-}
+MyMusic::~MyMusic() {}
 
 void MyMusic::initWindowStyle()
 {
-    this->setWindowFlag(Qt::FramelessWindowHint);
-    this->setAttribute(Qt::WA_TranslucentBackground);
-
+    setWindowFlag(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground);
     QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(this);
     shadowEffect->setOffset(0, 0);
     shadowEffect->setColor(QColor(0, 0, 0));
     shadowEffect->setBlurRadius(20);
-    this->setGraphicsEffect(shadowEffect);
+    setGraphicsEffect(shadowEffect);
 }
 
 void MyMusic::setupConnections()
 {
     connect(ui.closeButton, &QPushButton::clicked, this, &QWidget::close);
     connect(ui.maximizeButton, &QPushButton::clicked, this, [this]() {
-        if (isMaximized())
-            showNormal();
-        else
-            showMaximized();
+        isMaximized() ? showNormal() : showMaximized();
     });
-
     connect(ui.playPauseButton, &QPushButton::clicked, m_controller, &PlaybackController::togglePlay);
     connect(ui.stopButton, &QPushButton::clicked, m_controller, &PlaybackController::stop);
     connect(ui.previousButton, &QPushButton::clicked, m_controller, &PlaybackController::previous);
     connect(ui.nextButton, &QPushButton::clicked, m_controller, &PlaybackController::next);
-
     connect(ui.volumeButton, &QPushButton::clicked, this, [this]() {
         m_player->setMuted(!m_player->isMuted());
     });
-
     connect(m_controller, &PlaybackController::durationChanged, this, &MyMusic::onDurationChanged);
     connect(m_controller, &PlaybackController::positionChanged, this, &MyMusic::onPositionChanged);
     connect(m_controller, &PlaybackController::currentMediaChanged, this, &MyMusic::onMediaInfoChanged);
@@ -77,15 +68,8 @@ void MyMusic::mousePressEvent(QMouseEvent* event)
     QWidget::mousePressEvent(event);
 }
 
-void MyMusic::onDurationChanged(qint64 duration)
-{
-    ui.progressBar->setMaximum(static_cast<int>(duration));
-}
-
-void MyMusic::onPositionChanged(qint64 position)
-{
-    ui.progressBar->setValue(static_cast<int>(position));
-}
+void MyMusic::onDurationChanged(qint64 duration) { ui.progressBar->setMaximum(static_cast<int>(duration)); }
+void MyMusic::onPositionChanged(qint64 position) { ui.progressBar->setValue(static_cast<int>(position)); }
 
 void MyMusic::onMediaInfoChanged(const QString& filePath, const QString& title, const QString& artist)
 {

@@ -21,29 +21,16 @@ MusicPlayer::MusicPlayer(QObject *parent)
     });
 }
 
-MusicPlayer::~MusicPlayer()
-{
-}
+MusicPlayer::~MusicPlayer() {}
 
 void MusicPlayer::setSource(const QString& filePath)
 {
     m_player->setSource(QUrl::fromLocalFile(filePath));
 }
 
-void MusicPlayer::play()
-{
-    m_player->play();
-}
-
-void MusicPlayer::pause()
-{
-    m_player->pause();
-}
-
-void MusicPlayer::stop()
-{
-    m_player->stop();
-}
+void MusicPlayer::play() { m_player->play(); }
+void MusicPlayer::pause() { m_player->pause(); }
+void MusicPlayer::stop() { m_player->stop(); }
 
 void MusicPlayer::setVolume(float volume)
 {
@@ -55,35 +42,15 @@ void MusicPlayer::setVolume(float volume)
     }
 }
 
-void MusicPlayer::seek(qint64 position)
-{
-    m_player->setPosition(position);
-}
-
-bool MusicPlayer::isPlaying() const
-{
-    return m_player->playbackState() == QMediaPlayer::PlayingState;
-}
-
-qint64 MusicPlayer::duration() const
-{
-    return m_player->duration();
-}
-
-qint64 MusicPlayer::position() const
-{
-    return m_player->position();
-}
-
-float MusicPlayer::volume() const
-{
-    return m_audioOutput->volume();
-}
-
-PlayMode MusicPlayer::playMode() const
-{
-    return m_playMode;
-}
+void MusicPlayer::seek(qint64 position) { m_player->setPosition(position); }
+bool MusicPlayer::isPlaying() const { return m_player->playbackState() == QMediaPlayer::PlayingState; }
+qint64 MusicPlayer::duration() const { return m_player->duration(); }
+qint64 MusicPlayer::position() const { return m_player->position(); }
+float MusicPlayer::volume() const { return m_audioOutput->volume(); }
+PlayMode MusicPlayer::playMode() const { return m_playMode; }
+bool MusicPlayer::isMuted() const { return m_muted; }
+QString MusicPlayer::errorString() const { return m_player->errorString(); }
+bool MusicPlayer::hasError() const { return m_player->error() != QMediaPlayer::NoError; }
 
 void MusicPlayer::setPlayMode(PlayMode mode)
 {
@@ -92,11 +59,6 @@ void MusicPlayer::setPlayMode(PlayMode mode)
         m_playMode = mode;
         emit playModeChanged(mode);
     }
-}
-
-bool MusicPlayer::isMuted() const
-{
-    return m_muted;
 }
 
 void MusicPlayer::setMuted(bool muted)
@@ -115,14 +77,4 @@ void MusicPlayer::setMuted(bool muted)
         }
         emit mutedChanged(muted);
     }
-}
-
-QString MusicPlayer::errorString() const
-{
-    return m_player->errorString();
-}
-
-bool MusicPlayer::hasError() const
-{
-    return m_player->error() != QMediaPlayer::NoError;
 }
